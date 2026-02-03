@@ -1,0 +1,318 @@
+/* assets/css/style.css - PREMIUM MEDICAL LOOK */
+
+/* --- IMPORT FONT MODERN (Plus Jakarta Sans - Seperti startup unicorn) --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Color Palette Premium */
+    --primary: #0088cc;      /* Medical Blue - Tenang & Terpercaya */
+    --primary-dark: #005f8f; /* Versi gelap untuk hover */
+    --secondary: #0f172a;    /* Navy Blue - Elegan untuk Teks */
+    --accent: #e0f2fe;       /* Biru muda sangat lembut untuk background section */
+    --surface: #ffffff;      /* Putih bersih */
+    --text-grey: #64748b;    /* Abu-abu modern untuk paragraf */
+    
+    --radius: 12px;          /* Sudut tumpul yang konsisten */
+    --shadow: 0 10px 40px -10px rgba(0,0,0,0.08); /* Bayangan super halus */
+}
+
+/* --- STYLE TAMBAHAN KHUSUS HEADER BARU --- */
+
+/* 1. Top Bar (Baris Paling Atas) */
+.top-bar {
+    background-color: var(--secondary); /* Navy Blue */
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+    padding: 8px 0;
+}
+.top-bar a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: 0.3s;
+}
+.top-bar a:hover {
+    color: #fff;
+}
+
+/* 2. Main Navbar Styling */
+.navbar-custom {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Bayangan halus di bawah menu */
+    padding: 15px 0; /* Lebih tebal biar lega */
+}
+
+/* 3. Animasi Link Menu (Garis Bawah Berjalan) */
+.nav-link-custom {
+    font-weight: 600;
+    color: var(--secondary) !important;
+    margin: 0 12px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Membuat garis transparan dulu */
+.nav-link-custom::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%; /* Mulai dari tengah */
+    background-color: var(--primary); /* Warna Biru Medis */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+/* Saat di-hover, garis memanjang ke samping */
+.nav-link-custom:hover::after, .nav-link-custom.active::after {
+    width: 100%;
+}
+
+.nav-link-custom:hover {
+    color: var(--primary) !important;
+}
+
+/* 4. Logo Styling */
+.brand-icon-box {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 136, 204, 0.3);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc; /* Bukan putih polos, tapi abu-abu bluish sangat muda */
+    color: var(--secondary);
+    line-height: 1.6;
+}
+
+/* --- NAVBAR BERSIH --- */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); /* Efek kaca buram */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 1.2rem 0;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--primary) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--text-grey) !important;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary) !important;
+}
+
+/* --- TOMBOL (Button) YANG CLEAN --- */
+.btn {
+    padding: 12px 28px;
+    border-radius: 50px; /* Full Rounded */
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom {
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-outline-custom {
+    background-color: transparent;
+    border: 2px solid var(--text-grey);
+    color: var(--text-grey);
+}
+
+.btn-outline-custom:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: transparent;
+}
+
+/* --- HERO SECTION (Asimetris) --- */
+.hero-section {
+    padding: 80px 0;
+    overflow: hidden; /* Biar elemen hiasan tidak bocor */
+    position: relative;
+}
+
+.hero-title {
+    font-size: 3.5rem; /* Besar & Tegas */
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 25px;
+}
+
+.hero-text {
+    font-size: 1.15rem;
+    color: var(--text-grey);
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+/* Gambar Hero dengan bentuk organik (Blob shape) */
+.hero-img-wrapper {
+    position: relative;
+    z-index: 2;
+}
+.hero-img-wrapper img {
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* --- CARDS FITUR --- */
+.feature-card {
+    background: var(--surface);
+    padding: 40px 30px;
+    border-radius: var(--radius);
+    border: 1px solid #f1f5f9;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    background: var(--accent);
+    color: var(--primary);
+}
+
+/* ---  FOOTER --- */
+.footer-section {
+    background-color: var(--secondary); /* Warna Navy */
+    color: #cbd5e1; /* Warna teks abu-abu terang (bukan putih polos biar mata tidak sakit) */
+}
+
+.footer-link {
+    color: #94a3b8;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--primary); /* Berubah biru saat di-hover */
+    padding-left: 8px; /* Efek geser sedikit ke kanan */
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    margin-right: 10px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+/* --- STYLE KHUSUS HALAMAN RESERVASI (PREMIUM LOOK) --- */
+
+/* Latar belakang atas (Header Background) */
+.page-header-premium {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    padding: 80px 0 120px 0; /* Padding bawah besar agar kartu bisa menumpuk */
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efek hiasan background (Lingkaran transparan) */
+.page-header-premium::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+/* Kartu Formulir yang Mengambang (Floating Card) */
+.form-card-floating {
+    margin-top: -80px; /* INI KUNCINYA: Menarik kartu ke atas menumpuk header */
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); /* Bayangan sangat halus & luas */
+    border: 1px solid rgba(0,0,0,0.02);
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+/* Styling Input Form agar terlihat mahal */
+.form-control-premium {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-control-premium:focus {
+    background-color: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0, 136, 204, 0.1); /* Glow effect biru */
+}
+
+.form-label-premium {
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* Kartu Sidebar (Info Dokter/Kontak) */
+.sidebar-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid #f1f5f9;
+    margin-bottom: 20px;
+}
